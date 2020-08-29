@@ -1,0 +1,27 @@
+void leftView(Node *root)
+{
+   // Your code here
+   queue<Node*>q;
+   queue<Node*>q1;
+   if(root!=NULL)
+   q.push(root);
+   while(q.empty()!=true)
+   {
+       Node *a = q.front();
+       cout<<a->data<<" ";
+       while(q.empty()!=true)
+       {
+           a = q.front();
+           q.pop();
+           if(a->left!=NULL)
+            q1.push(a->left);
+           if(a->right!=NULL)
+            q1.push(a->right);
+       }
+       while(q1.empty()!=true)
+       {
+           q.push(q1.front());
+           q1.pop();
+       }
+   }
+}
